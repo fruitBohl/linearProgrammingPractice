@@ -3,7 +3,7 @@ from scipy.optimize import linprog
 import numpy
 
 
-def optimization():
+def linearProblem():
     # put system of equations into arrays
     obj = [-1, -2]
 
@@ -20,5 +20,15 @@ def optimization():
     print(opt)
 
 
+def resourceAllocationProblem():
+    obj = [-20, -12, -40, -25]
+
+    lhsIneq = [[1, 1, 1, 1], [3, 2, 1, 0], [0, 1, 2, 3]]
+    rhsIneq = [50, 100, 90]
+
+    opt = linprog(obj, lhsIneq, rhsIneq, "revised simplex")
+    print(opt)
+
+
 if __name__ == "__main__":
-    optimization()
+    resourceAllocationProblem()
